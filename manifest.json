@@ -1,0 +1,13 @@
+{
+    "name": "Pomodoro Timer",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+        "32": "dist/static/logo.png"
+      },
+      "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }]
+  }
