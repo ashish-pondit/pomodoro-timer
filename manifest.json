@@ -1,6 +1,6 @@
 {
     "name": "Pomodoro Timer",
-    "description": "Base Level Extension",
+    "description": "A simple pomodoro timer to boost productivity.",
     "version": "1.0",
     "manifest_version": 3,
     "icons": {
