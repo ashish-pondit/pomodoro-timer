@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h1 style="font-size:4rem;">Pomodoro</h1>
+<h1 class="heading">Pomodoro</h1>
 <div class="time-frame">
   <time>25:00</time>
   <span class="time-text">Focusing
@@ -29,19 +29,19 @@
 </audio>
 
 <div class="audio-collection">
-    <span onclick="changeSound(event, 'water')" class="material-symbols-outlined">
+    <span id="sound-water" data-sound-type="water" class="material-symbols-outlined">
       water
     </span>
-    <span onclick="changeSound(event, 'fire')" class="material-symbols-outlined">
+    <span id="sound-fire" data-sound-type="fire" class="material-symbols-outlined">
       local_fire_department
     </span>
-  <span onclick="changeSound(event, 'bird')" class="material-symbols-outlined">
+  <span id="sound-bird" data-sound-type="bird" class="material-symbols-outlined">
       raven
     </span>
-  <span onclick="changeSound(event, 'ding-dong')" class="material-symbols-outlined">
+  <span id="sound-ding-dong" data-sound-type="ding-dong" class="material-symbols-outlined">
       music_note
     </span>
-  <span onclick="changeSound(event, 'meditation')" class="material-symbols-outlined">
+  <span id="sound-meditation" data-sound-type="meditation" class="material-symbols-outlined">
       self_improvement
     </span>
 </div>

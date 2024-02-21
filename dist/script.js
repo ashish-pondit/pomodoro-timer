@@ -1,5 +1,5 @@
-const FOCUS_TIME = 5;
-const REST_TIME = 5;
+const FOCUS_TIME = 25*60;
+const REST_TIME = 5*60;
 
 const audio_controller = document.querySelector(".audio-controll");
 
@@ -27,7 +27,8 @@ const audioLibrary = {
   "meditation": "https://mynoise.world/NoisesOnline/Audio/ga.ogg",
 }
 
-function changeSound(event, soundType){
+function changeSound(event){
+  const soundType = this.getAttribute('data-sound-type');
   let target = event.currentTarget;
   if(target.classList.contains("button-active")){
     audio_controller.pause();
@@ -48,6 +49,16 @@ function changeSound(event, soundType){
     target.classList.add("button-active");
   }
 }
+
+function wrapperFunction(event){
+  const soundType = this.getAttribute('data-sound-type');
+  changeSound(event, soundType);
+}
+document.querySelector("#sound-water").addEventListener("click", changeSound);
+document.querySelector("#sound-fire").addEventListener("click", changeSound);
+document.querySelector("#sound-bird").addEventListener("click", changeSound);
+document.querySelector("#sound-ding-dong").addEventListener("click", changeSound);
+document.querySelector("#sound-meditation").addEventListener("click", changeSound);
 
 function dynamicBackground() {
   if (bgImages.length > 0) {

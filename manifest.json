@@ -5,9 +5,11 @@
     "manifest_version": 3,
     "icons": {
         "32": "dist/static/logo.png"
-      },
-      "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": ["content.js"]
-      }]
-  }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "click to open"
+      }
+}
