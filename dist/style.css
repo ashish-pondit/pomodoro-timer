@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://storage.googleapis.com/pai-images/5d745a02dee8448d9e4f53ba524be0f0.jpeg");
+  background-image: url("https://storage.googleapis.com/pai-images/1c94f777d9dd48bb9313a9cf371b6f63.jpeg");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
@@ -23,7 +23,8 @@ body {
 }
 
 .heading{
-  font-size:3rem;
+  font-size:4rem;
+  font-weight: 50;
   margin: 0 0 30px 0;
 }
 
@@ -46,6 +47,7 @@ body {
 
 time {
   font-size: 5rem;
+  font-weight: bold;
 }
 
 .time-footer {

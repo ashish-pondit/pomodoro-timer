@@ -14,9 +14,10 @@ let loadingLimit = 3;
 
 let bgImageIndex = 0;
 const bgImages = [
-  "https://storage.googleapis.com/pai-images/892e2bfb5df749a3b0f404229d79e864.jpeg",
-  "https://wallpapercave.com/wp/wp4697718.jpg",
-  "https://wallpapercave.com/wp/wp11882328.jpg"
+  "https://storage.googleapis.com/pai-images/d14e2785b40c4661937a7723936a52d8.jpeg",
+  "https://storage.googleapis.com/pai-images/5015d0d422e442bea45fa5307f18ab2b.jpeg",
+  "https://storage.googleapis.com/pai-images/d3a84ebe51f44db5a9e19d83b83ff9af.jpeg",
+  "https://storage.googleapis.com/pai-images/97acd642a35b4af6b4ff786ca6d9dc37.jpeg",
 ];
 
 const audioLibrary = {
@@ -54,11 +55,11 @@ function wrapperFunction(event){
   const soundType = this.getAttribute('data-sound-type');
   changeSound(event, soundType);
 }
-document.querySelector("#sound-water").addEventListener("click", changeSound);
-document.querySelector("#sound-fire").addEventListener("click", changeSound);
-document.querySelector("#sound-bird").addEventListener("click", changeSound);
-document.querySelector("#sound-ding-dong").addEventListener("click", changeSound);
-document.querySelector("#sound-meditation").addEventListener("click", changeSound);
+// document.querySelector("#sound-water").addEventListener("click", changeSound);
+// document.querySelector("#sound-fire").addEventListener("click", changeSound);
+// document.querySelector("#sound-bird").addEventListener("click", changeSound);
+// document.querySelector("#sound-ding-dong").addEventListener("click", changeSound);
+// document.querySelector("#sound-meditation").addEventListener("click", changeSound);
 
 function dynamicBackground() {
   if (bgImages.length > 0) {
@@ -85,9 +86,9 @@ function controlPomodoro() {
   }
 }
 
-document
-  .querySelector(".controller")
-  .addEventListener("click", controlPomodoro);
+// document
+//   .querySelector(".controller")
+//   .addEventListener("click", controlPomodoro);
 
 function loading() {
   document.querySelector(".loading").innerText = loadingChar.repeat(
