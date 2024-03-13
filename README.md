@@ -34,6 +34,9 @@ You can also use it as a chrome extension. Currently this is not available in ch
 - **Step-4:** After turning on the developer mode there will be additional option on the top left corner. Click on the `Load unpacked` option. Then select the folder of the git repository. Then you are good to go. Whenever you click on the extension a new page will be open where you can use the pomodoro timer.
 
 
+<!-- https://github.com/pqina/flip -->
+
+
 
 
 
