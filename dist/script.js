@@ -14,9 +14,9 @@ let loadingLimit = 3;
 
 let bgImageIndex = 0;
 const bgImages = [
-  "https://storage.googleapis.com/pai-images/892e2bfb5df749a3b0f404229d79e864.jpeg",
-  "https://wallpapercave.com/wp/wp4697718.jpg",
-  "https://wallpapercave.com/wp/wp11882328.jpg"
+  "https://images.unsplash.com/photo-1459478309853-2c33a60058e7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1541382044604-63dbc166c0bd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1460372233182-93c9654427a0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ];
 
 const audioLibrary = {
