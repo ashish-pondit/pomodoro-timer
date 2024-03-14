@@ -18,9 +18,17 @@
 
 
   <style>
+    .wrapper{
+      display: flex;
+    }
     .tick {
       font-size: 15rem;
       font-weight: bold;
+    }
+    .seperator{
+      font-size: 15rem;
+      font-weight: bold;
+      color: rgba(51, 50, 50, 1);
     }
     .time-label{
       display: flex;
@@ -42,8 +50,14 @@
 </head>
 <body>
 
-  <div class="roboto-regular">
-    <div class="tick" data-value="" data-did-init="setupFlip">
+  <div class="wrapper roboto-regular">
+    <div class="tick" data-value="25" data-did-init="setupMinute">
+      <div data-repeat="true">
+        <span data-view="flip"></span>
+      </div>
+    </div>
+    <div class="seperator">:</div>
+    <div class="tick" data-value="00" data-did-init="setupSecond">
       <div data-repeat="true">
         <span data-view="flip"></span>
       </div>
