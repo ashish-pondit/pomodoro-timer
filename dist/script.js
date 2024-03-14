@@ -1,152 +1,48 @@
-const FOCUS_TIME = 25*60;
-const REST_TIME = 5*60;
+const focusTime = 25;
+const restTime = 5;
 
-const audio_controller = document.querySelector(".audio-controll");
+let focus = true;
+let currentTime = focusTime*60+1;
 
-let focusTime = FOCUS_TIME;
-let restTime = REST_TIME;
-let state = "focus";
-let pause = false;
+function hTime(timeSeconds){
+  let minute = Math.floor(timeSeconds/60);
+  let second = timeSeconds%60;
 
-let loadingCount = 1;
-let loadingChar = ".";
-let loadingLimit = 3;
+  let finalTime = '';
+  if(minute <10){
+    finalTime += '0'+minute.toString();
+  } else{
+    finalTime += minute.toString();
+  }
 
-let bgImageIndex = 0;
-const bgImages = [
-  "https://storage.googleapis.com/pai-images/892e2bfb5df749a3b0f404229d79e864.jpeg",
-  "https://wallpapercave.com/wp/wp4697718.jpg",
-  "https://wallpapercave.com/wp/wp11882328.jpg"
-];
+  // finalTime += ':';
 
-const audioLibrary = {
-  "fire": "https://mynoise.world/NoisesOnline/Audio/ea.ogg",
-  "water": "https://mynoise.world/NoisesOnline/Audio/aa.ogg",
-  "bird": "https://mynoise.world/NoisesOnline/Audio/da.ogg",
-  "ding-dong": "https://mynoise.world/NoisesOnline/Audio/gb.ogg",
-  "meditation": "https://mynoise.world/NoisesOnline/Audio/ga.ogg",
+  if(second <10){
+    finalTime += '0'+second.toString();
+  } else{
+    finalTime += second.toString();
+  }
+  return finalTime;
 }
 
-function changeSound(event){
-  const soundType = this.getAttribute('data-sound-type');
-  let target = event.currentTarget;
-  if(target.classList.contains("button-active")){
-    audio_controller.pause();
-    audio_controller.src = "";
-    target.classList.remove("button-active");
-  }else{
- document.querySelectorAll(".audio-collection span").forEach((item)=>{
-      item.classList.remove("button-active");
-    })
-    
-    audio_controller.pause();
-    audio_controller.src = audioLibrary[soundType];
-    if(!pause){
-      audio_controller.play();
+function setupFlip(tick) {
+
+ Tick.helper.interval(function() {
+  if(currentTime == 0){
+    focus = !focus;
+    if(focus){
+      currentTime = focusTime*60+1;
     }else{
-      audio_controller.pause();
-    }
-    target.classList.add("button-active");
-  }
-}
-
-function wrapperFunction(event){
-  const soundType = this.getAttribute('data-sound-type');
-  changeSound(event, soundType);
-}
-document.querySelector("#sound-water").addEventListener("click", changeSound);
-document.querySelector("#sound-fire").addEventListener("click", changeSound);
-document.querySelector("#sound-bird").addEventListener("click", changeSound);
-document.querySelector("#sound-ding-dong").addEventListener("click", changeSound);
-document.querySelector("#sound-meditation").addEventListener("click", changeSound);
-
-function dynamicBackground() {
-  if (bgImages.length > 0) {
-    document.querySelector("body").style.backgroundImage = `url("${
-      bgImages[bgImageIndex++]
-    }")`;
-    if (bgImageIndex >= bgImages.length - 1) {
-      bgImageIndex = 0;
+      currentTime = restTime*60+1;
     }
   }
+
+  currentTime--;
+  let time = hTime(currentTime);
+  tick.value = time;
+
+  // const node = document.querySelector('.tick-flip:nth-child(3)')
+  
+ }, 1000);
+
 }
-
-function controlPomodoro() {
-  if (pause) {
-    document.querySelector(".controller .pause").style.display = "block";
-    document.querySelector(".controller .play").style.display = "none";
-    pause = !pause;
-    audio_controller.play();
-  } else {
-    document.querySelector(".controller .pause").style.display = "none";
-    document.querySelector(".controller .play").style.display = "block";
-    pause = !pause;
-    audio_controller.pause();
-  }
-}
-
-document
-  .querySelector(".controller")
-  .addEventListener("click", controlPomodoro);
-
-function loading() {
-  document.querySelector(".loading").innerText = loadingChar.repeat(
-    loadingCount++
-  );
-  loadingCount = loadingCount > loadingLimit ? 1 : loadingCount;
-}
-
-function setTimeText(timeString) {
-  document.querySelector("time").innerText = timeString;
-}
-
-function zeroPad(number) {
-  if (number < 10) {
-    return "0" + number.toString();
-  } else {
-    return number.toString();
-  }
-}
-
-function secondsToText(totalSeconds) {
-  let minute = zeroPad(Math.floor(totalSeconds / 60));
-  let seconds = zeroPad(totalSeconds % 60);
-  let timeString = `${minute}:${seconds}`;
-  setTimeText(timeString);
-}
-
-function focusTimer() {
-  if (focusTime === 0) {
-    state = "rest";
-    restTime = REST_TIME;
-    document.querySelector(".time-text").innerText = "Resting";
-  } else {
-    focusTime--;
-    secondsToText(focusTime);
-  }
-}
-
-function restTimer() {
-  if (restTime === 0) {
-    state = "focus";
-    focusTime = FOCUS_TIME;
-    document.querySelector(".time-text").innerText = "Focusing";
-    dynamicBackground();
-  } else {
-    restTime--;
-    secondsToText(restTime);
-  }
-}
-
-function timerFunction() {
-  if (!pause) {
-    if (state == "rest") {
-      restTimer();
-    } else {
-      focusTimer();
-    }
-    loading();
-  }
-}
-
-setInterval(timerFunction, 1000);
