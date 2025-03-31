@@ -1,5 +1,5 @@
-const FOCUS_TIME = 25;
-const REST_TIME = 10;
+const FOCUS_TIME = 25 * 60;
+const REST_TIME = 5 * 60;
 
 const audio_controller = document.querySelector(".audio-controll");
 
