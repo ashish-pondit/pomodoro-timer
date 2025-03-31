@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://storage.googleapis.com/pai-images/5d745a02dee8448d9e4f53ba524be0f0.jpeg");
+  background-image: url("./static/bg-1.jpg");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
@@ -22,8 +22,8 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.heading{
-  font-size:3rem;
+.heading {
+  font-size: 3rem;
   margin: 0 0 30px 0;
 }
 
@@ -88,7 +88,7 @@ h1 {
   display: none;
 }
 
-.audio-collection{
+.audio-collection {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -96,23 +96,23 @@ h1 {
 
   min-width: 300px;
   max-width: 500px;
-  
+
   margin-top: 50px;
   padding: 5px;
   border-radius: 50px;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.audio-collection span{
+.audio-collection span {
   font-size: 2rem;
   border-radius: 100%;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
   margin-left: 10px;
 }
 
-.button-active{
-  background-color: rgba(255,255,255,1) !important;
+.button-active {
+  background-color: rgba(255, 255, 255, 1) !important;
   color: black;
   font-weight: 600;
 }
